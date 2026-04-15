@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JEE Main 2026 Scorecard</title>
+
+<style>
+body {font-family: Arial; background:#f4f6f9;}
+
+/* Loading Screen */
+#loading {
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  font-size:18px;
+}
+
+/* Spinner */
+.loader {
+  border:6px solid #f3f3f3;
+  border-top:6px solid #003366;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  animation: spin 1s linear infinite;
+  margin-top:10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Result */
+.container {
+  display:none;
+  width:70%; margin:30px auto;
+  background:white; padding:20px;
+  border-radius:10px; box-shadow:0 0 10px gray;
+}
+
+h1 {text-align:center; color:#003366;}
+.warning {text-align:center; color:red; font-weight:bold;}
+
+table {
+  width:100%; border-collapse:collapse;
+  margin-top:20px;
+}
+td, th {
+  border:1px solid #ccc;
+  padding:10px;
+}
+th {
+  background:#003366; color:white;
+}
+
+.btn {
+  display:block;
+  margin:20px auto;
+  padding:10px 20px;
+  background:#003366;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Loading Screen -->
+<div id="loading">
+  Connecting to NTA Server...
+  <div class="loader"></div>
+  <p>Please wait while we fetch your result</p>
+</div>
+
+<!-- Result -->
+<div class="container" id="resultContent">
+
+<h1>National Testing Agency (NTA)</h1>
+<h2 style="text-align:center;">JEE Main 2026 Score Card</h2>
+
+<table>
+<tr><th colspan="2">Candidate Details</th></tr>
+
+<tr><td>Name</td><td>Sumit Soni</td></tr>
+<tr><td>Application Number</td><td>260320014700</td></tr>
+<tr><td>Roll Number</td><td>MP070500094</td></tr>
+<tr><td>Date of Birth</td><td>12/07/2007</td></tr>
+
+<tr><td>Father's Name</td><td>Nagendra Sonu</td></tr>
+<tr><td>Mother's Name</td><td>Seema Soni</td></tr>
+
+<tr><td>Gender</td><td>Male</td></tr>
+<tr><td>Category</td><td>OBC</td></tr>
+<tr><td>State of Eligibility</td><td>Madhya Pradesh</td></tr>
+
+<tr><th colspan="2">Examination Details</th></tr>
+<tr><td>Session</td><td>April 2026</td></tr>
+
+<tr><th colspan="2">Score Details</th></tr>
+
+<tr><td>Physics Percentile</td><td>62</td></tr>
+<tr><td>Chemistry Percentile</td><td>47</td></tr>
+<tr><td>Mathematics Percentile</td><td>56</td></tr>
+
+<tr><td>Total Percentile</td><td>99.05%</td></tr>
+<tr><td>All India Rank (AIR)</td><td>12,450</td></tr>
+
+</table>
+
+<button class="btn" onclick="downloadPDF()">Download Scorecard (PDF)</button>
+
+</div>
+
+<script>
+// Show loading then result
+setTimeout(()=>{
+  document.getElementById("loading").style.display="none";
+  document.getElementById("resultContent").style.display="block";
+},2500);
+
+function downloadPDF(){
+  window.print();
+}
+</script>
+
+</body>
+</html> 
